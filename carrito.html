@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Shopping cart</title>
+    <link rel="stylesheet" href="./css/main.css" />
+    <script
+      src="https://kit.fontawesome.com/a5c52835dd.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <div class="container">
+      <aside>
+        <header>
+          <h1 class="logo">E-commerce</h1>
+        </header>
+        <nav>
+          <ul>
+            <li>
+              <a class="button-menu button-back" href="index.html"
+                ><i class="fa-solid fa-arrow-turn-down fa-rotate-90"></i> Seguir
+                comprando</a
+              >
+            </li>
+            <li>
+              <a class="button-menu button-car active" href="carrito.html"
+                ><i class="fa-solid fa-cart-shopping"></i> Shopping cart</a
+              >
+            </li>
+          </ul>
+        </nav>
+        <footer>
+          <p class="text-footer">&#169; 2023 E-commerce</p>
+        </footer>
+      </aside>
+      <main>
+        <h2 class="main-title">Shopping cart</h2>
+        <div class="container-car">
+          <p class="car-empty">
+            Your car is empty. <i class="fa-regular fa-face-frown"></i>
+          </p>
+          <div class="car-product">
+            <img src="img/jackets/jacket-1.jpg" alt="jacket-1" />
+            <div class="car-product-title">
+              <small>Title</small>
+              <h3>Abrigo 01</h3>
+              <div class="car-product-amount">
+                <small>Amount</small>
+                <p>1</p>
+              </div>
+              <div class="car-product-price">
+                <small>Price</small>
+                <p>$1000</p>
+              </div>
+              <div class="car-product-subtotal">
+                <small>Subtotal</small>
+                <p>$1000</p>
+              </div>
+              <button class="car-product-delete">
+                <i class="fa-solid fa-trash"></i>
+              </button>
+            </div>
+          </div>
+          <div class="car-product">
+            <img src="img/jackets/jacket-2.jpg" alt="jacket-2" />
+            <div class="car-product-title">
+              <small>Title</small>
+              <h3>Abrigo 02</h3>
+              <div class="car-product-amount">
+                <small>Amount</small>
+                <p>2</p>
+              </div>
+              <div class="car-product-price">
+                <small>Price</small>
+                <p>$1000</p>
+              </div>
+              <div class="car-product-subtotal">
+                <small>Subtotal</small>
+                <p>$2000</p>
+              </div>
+              <button class="car-product-delete">
+                <i class="fa-solid fa-trash"></i>
+              </button>
+            </div>
+          </div>
+          <div class="car-actions">
+            <div class="car-actions-left">
+              <button class="car-actions-empty">Empty cart</button>
+            </div>
+            <div class="car-actions-right">
+              <div class="car-actions-total">
+                <p>Total:</p>
+                <p id="total">$3000</p>
+              </div>
+              <button class="car-actions-buy">Buy now</button>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+    <script src="./js/carrito.js"></script>
+  </body>
+</html>
