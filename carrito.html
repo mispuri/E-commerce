@@ -20,8 +20,8 @@
           <ul>
             <li>
               <a class="button-menu button-back" href="index.html"
-                ><i class="fa-solid fa-arrow-turn-down fa-rotate-90"></i> Seguir
-                comprando</a
+                ><i class="fa-solid fa-arrow-turn-down fa-rotate-90"></i> Keep
+                buying</a
               >
             </li>
             <li>
@@ -41,11 +41,17 @@
           <p class="car-empty">
             Your car is empty. <i class="fa-regular fa-face-frown"></i>
           </p>
-          <div class="car-product">
-            <img src="img/jackets/jacket-1.jpg" alt="jacket-1" />
-            <div class="car-product-title">
-              <small>Title</small>
-              <h3>Abrigo 01</h3>
+          <div class="car-products disabled">
+            <div class="car-product">
+              <img
+                class="car-product-img"
+                src="img/jackets/jacket-1.jpg"
+                alt="jacket-1"
+              />
+              <div class="car-product-title">
+                <small>Title</small>
+                <h3>Abrigo 01</h3>
+              </div>
               <div class="car-product-amount">
                 <small>Amount</small>
                 <p>1</p>
@@ -62,12 +68,16 @@
                 <i class="fa-solid fa-trash"></i>
               </button>
             </div>
-          </div>
-          <div class="car-product">
-            <img src="img/jackets/jacket-2.jpg" alt="jacket-2" />
-            <div class="car-product-title">
-              <small>Title</small>
-              <h3>Abrigo 02</h3>
+            <div class="car-product">
+              <img
+                class="car-product-img"
+                src="img/jackets/jacket-2.jpg"
+                alt="jacket-2"
+              />
+              <div class="car-product-title">
+                <small>Title</small>
+                <h3>Abrigo 02</h3>
+              </div>
               <div class="car-product-amount">
                 <small>Amount</small>
                 <p>2</p>
@@ -84,18 +94,22 @@
                 <i class="fa-solid fa-trash"></i>
               </button>
             </div>
-          </div>
-          <div class="car-actions">
-            <div class="car-actions-left">
-              <button class="car-actions-empty">Empty cart</button>
-            </div>
-            <div class="car-actions-right">
-              <div class="car-actions-total">
-                <p>Total:</p>
-                <p id="total">$3000</p>
+            <div class="car-actions disabled">
+              <div class="car-actions-left">
+                <button class="car-actions-empty">Empty cart</button>
               </div>
-              <button class="car-actions-buy">Buy now</button>
+              <div class="car-actions-right">
+                <div class="car-actions-total">
+                  <p>Total:</p>
+                  <p id="total">$3000</p>
+                </div>
+                <button class="car-actions-buy">Buy now</button>
+              </div>
             </div>
+            <p class="car-purchased disabled">
+              Thanks for you purchase.
+              <i class="fa-regular fa-face-grin-wink"></i>
+            </p>
           </div>
         </div>
       </main>
