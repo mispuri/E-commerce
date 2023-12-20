@@ -77,12 +77,12 @@ aside {
   font-weight: 600;
   padding: 1rem;
   font-size: 0.85rem;
+  width: 100%;
 }
 
 .button-menu.active {
   background-color: var(--clr-white);
   color: var(--clr-main);
-  width: 100%;
   border-top-left-radius: 1rem;
   border-bottom-left-radius: 1rem;
   position: relative;
