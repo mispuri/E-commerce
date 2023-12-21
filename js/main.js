@@ -193,6 +193,8 @@ const products = [
 const containerProducts = document.getElementById('container-products');
 const categoryButtons = document.querySelectorAll('.button-category');
 const categoryTitle = document.getElementById('title-main');
+let addButtons = document.querySelectorAll('.product-add');
+const numberCar = document.getElementById('number-car');
 
 function uploadProducts(chosenProducts) {
   containerProducts.innerHTML = '';
@@ -215,6 +217,7 @@ function uploadProducts(chosenProducts) {
 
     containerProducts.append(div);
   });
+  updateAddButtons();
 }
 
 uploadProducts(products);
@@ -239,3 +242,42 @@ categoryButtons.forEach((button) => {
     }
   });
 });
+
+function updateAddButtons() {
+  addButtons = document.querySelectorAll('.product-add');
+
+  addButtons.forEach((button) => {
+    button.addEventListener('click', addCart);
+  });
+}
+
+const productInCart = [];
+
+function addCart(e) {
+  const idButton = e.currentTarget.id;
+  const addedProduct = products.find((products) => products.id === idButton);
+
+  if (productInCart.some((products) => products.id === idButton)) {
+    const index = productInCart.findIndex(
+      (products) => products.id === idButton
+    );
+    productInCart[index].amount++;
+  } else {
+    addedProduct.amount = 1;
+    productInCart.push(addedProduct);
+  }
+  updateNumerCar();
+
+  localStorage.setItem(
+    'Products-in-shopping-car',
+    JSON.stringify(productInCart)
+  );
+}
+
+function updateNumerCar() {
+  let newNumberCar = productInCart.reduce(
+    (acc, products) => acc + products.amount,
+    0
+  );
+  numberCar.innerText = newNumberCar;
+}
