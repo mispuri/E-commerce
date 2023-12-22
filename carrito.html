@@ -38,79 +38,28 @@
       <main>
         <h2 class="main-title">Shopping cart</h2>
         <div class="container-car">
-          <p class="car-empty">
+          <p id="car-empty" class="car-empty">
             Your car is empty. <i class="fa-regular fa-face-frown"></i>
           </p>
-          <div class="car-products disabled">
-            <div class="car-product">
-              <img
-                class="car-product-img"
-                src="img/jackets/jacket-1.jpg"
-                alt="jacket-1"
-              />
-              <div class="car-product-title">
-                <small>Title</small>
-                <h3>Abrigo 01</h3>
-              </div>
-              <div class="car-product-amount">
-                <small>Amount</small>
-                <p>1</p>
-              </div>
-              <div class="car-product-price">
-                <small>Price</small>
-                <p>$1000</p>
-              </div>
-              <div class="car-product-subtotal">
-                <small>Subtotal</small>
-                <p>$1000</p>
-              </div>
-              <button class="car-product-delete">
-                <i class="fa-solid fa-trash"></i>
-              </button>
-            </div>
-            <div class="car-product">
-              <img
-                class="car-product-img"
-                src="img/jackets/jacket-2.jpg"
-                alt="jacket-2"
-              />
-              <div class="car-product-title">
-                <small>Title</small>
-                <h3>Abrigo 02</h3>
-              </div>
-              <div class="car-product-amount">
-                <small>Amount</small>
-                <p>2</p>
-              </div>
-              <div class="car-product-price">
-                <small>Price</small>
-                <p>$1000</p>
-              </div>
-              <div class="car-product-subtotal">
-                <small>Subtotal</small>
-                <p>$2000</p>
-              </div>
-              <button class="car-product-delete">
-                <i class="fa-solid fa-trash"></i>
-              </button>
-            </div>
-            <div class="car-actions disabled">
-              <div class="car-actions-left">
-                <button class="car-actions-empty">Empty cart</button>
-              </div>
-              <div class="car-actions-right">
-                <div class="car-actions-total">
-                  <p>Total:</p>
-                  <p id="total">$3000</p>
-                </div>
-                <button class="car-actions-buy">Buy now</button>
-              </div>
-            </div>
-            <p class="car-purchased disabled">
-              Thanks for you purchase.
-              <i class="fa-regular fa-face-grin-wink"></i>
-            </p>
+          <div id="car-products" class="car-products disabled">
+            <!--Carrito.js-->
           </div>
+          <div id="car-actions" class="car-actions disabled">
+            <div class="car-actions-left">
+              <button class="car-actions-empty">Empty cart</button>
+            </div>
+            <div class="car-actions-right">
+              <div class="car-actions-total">
+                <p>Total:</p>
+                <p id="total">$3000</p>
+              </div>
+              <button class="car-actions-buy">Buy now</button>
+            </div>
+          </div>
+          <p id="car-purchased" class="car-purchased disabled">
+            Thanks for you purchase.
+            <i class="fa-regular fa-face-grin-wink"></i>
+          </p>
         </div>
       </main>
     </div>
