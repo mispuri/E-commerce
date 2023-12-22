@@ -252,11 +252,10 @@ function updateAddButtons() {
 }
 
 let productInCart;
-const productInCartLs = JSON.parse(
-  localStorage.getItem('Products-in-shopping-car')
-);
+
+let productInCartLs = localStorage.getItem('Products-in-shopping-car');
 if (productInCartLs) {
-  productInCart = productInCartLs;
+  productInCart = JSON.parse(productInCartLs);
   updateNumerCar();
 } else {
   productInCart = [];
