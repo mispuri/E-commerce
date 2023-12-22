@@ -251,7 +251,16 @@ function updateAddButtons() {
   });
 }
 
-const productInCart = [];
+let productInCart;
+const productInCartLs = JSON.parse(
+  localStorage.getItem('Products-in-shopping-car')
+);
+if (productInCartLs) {
+  productInCart = productInCartLs;
+  updateNumerCar();
+} else {
+  productInCart = [];
+}
 
 function addCart(e) {
   const idButton = e.currentTarget.id;
