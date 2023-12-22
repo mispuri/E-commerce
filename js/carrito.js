@@ -1,24 +1,28 @@
-const productInCart = JSON.parse(
-  localStorage.getItem('Products-in-shopping-car')
-);
+let productInCart = localStorage.getItem('Products-in-shopping-car');
+productInCart = JSON.parse(productInCart);
 
 const carEmpty = document.getElementById('car-empty');
 const carProducts = document.getElementById('car-products');
 const carActions = document.getElementById('car-actions');
 const carPurchased = document.getElementById('car-purchased');
+let buttonsDelete = document.querySelectorAll('.car-product-delete');
+const buttonEmptyCar = document.querySelector('#car-actions-empty');
+const total = document.querySelector('#total');
+const buttonBuy = document.querySelector('#car-actions-buy');
 
-carProducts.innerHTML = '';
+function uploadProductsCar() {
+  if (productInCart && productInCart.length > 0) {
+    carEmpty.classList.add('disabled');
+    carProducts.classList.remove('disabled');
+    carActions.classList.remove('disabled');
+    carPurchased.classList.add('disabled');
 
-if (productInCart) {
-  carEmpty.classList.add('disabled');
-  carProducts.classList.remove('disabled');
-  carActions.classList.remove('disabled');
-  carPurchased.classList.add('disabled');
+    carProducts.innerHTML = '';
 
-  productInCart.forEach((products) => {
-    const div = document.createElement('div');
-    div.classList.add('car-product');
-    div.innerHTML = `
+    productInCart.forEach((products) => {
+      const div = document.createElement('div');
+      div.classList.add('car-product');
+      div.innerHTML = `
     <img
     class="car-product-img"
     src="${products.img}"
@@ -44,11 +48,70 @@ if (productInCart) {
     </button>
     `;
 
-    carProducts.append(div);
+      carProducts.append(div);
+    });
+  } else {
+    carEmpty.classList.remove('disabled');
+    carProducts.classList.add('disabled');
+    carActions.classList.add('disabled');
+    carPurchased.classList.add('disabled');
+  }
+  updateAddButtonsDelete();
+  updateTotal();
+}
+uploadProductsCar();
+
+function updateAddButtonsDelete() {
+  buttonsDelete = document.querySelectorAll('.car-product-delete');
+
+  buttonsDelete.forEach((button) => {
+    button.addEventListener('click', deleteFromCar);
   });
-} else {
-  carEmpty.classList.remove('disabled');
+}
+
+function deleteFromCar(e) {
+  const idButton = e.currentTarget.id;
+  const index = productInCart.findIndex((products) => products.id === idButton);
+
+  productInCart.splice(index, 1);
+  uploadProductsCar();
+
+  localStorage.setItem(
+    'Products-in-shopping-car',
+    JSON.stringify(productInCart)
+  );
+}
+
+buttonEmptyCar.addEventListener('click', emptyCar);
+
+function emptyCar() {
+  productInCart.length = 0;
+  localStorage.setItem(
+    'Products-in-shopping-car',
+    JSON.stringify(productInCart)
+  );
+  uploadProductsCar();
+}
+
+function updateTotal() {
+  const calculatedTotal = productInCart.reduce(
+    (acc, products) => acc + products.price * products.amount,
+    0
+  );
+  total.innerText = `$ ${calculatedTotal}`;
+}
+
+buttonBuy.addEventListener('click', buyCar);
+
+function buyCar() {
+  productInCart.length = 0;
+  localStorage.setItem(
+    'Products-in-shopping-car',
+    JSON.stringify(productInCart)
+  );
+
+  carEmpty.classList.add('disabled');
   carProducts.classList.add('disabled');
   carActions.classList.add('disabled');
-  carPurchased.classList.add('disabled');
+  carPurchased.classList.remove('disabled');
 }
